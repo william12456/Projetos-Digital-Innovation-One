@@ -1,6 +1,5 @@
-let employee = {
-    cod: 10,
-    name: "John"
-}
+let employee = {};
+employee.cod = 10;
+employee.nome = "John";
 
 console.log(employee)
