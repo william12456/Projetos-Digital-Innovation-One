@@ -2,16 +2,16 @@ import os
 import CifraDeVernam
 
 def Criptografa(txt):
-    return CifraDeVernam.EncriptarDecriptar(txt, "enc")
+    return CifraDeVernam.EncriptarDecriptar(txt:str, "enc")
     
-def LerArquivo(file):
+def LerArquivo(file:str):
     with open(file,'r') as f:
         return f.read()
     
-def DeletaArquivo(files):
+def DeletaArquivo(files:str):
     os.remove(files) 
 
-def GravaNovoArquivo(txt, root, file):
+def GravaNovoArquivo(txt:str, root:str, file:str):
    with open(os.path.join(root, file) + '.enc', 'wb') as f:
        f.write(txt)
 
