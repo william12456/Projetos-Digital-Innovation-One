@@ -12,7 +12,6 @@ def DeletaArquivo(files):
     os.remove(files) 
 
 def GravaNovoArquivo(txt, root, file):
-    # sourcery skip: use-fstring-for-concatenation
    with open(os.path.join(root, file) + '.enc', 'wb') as f:
        f.write(txt)
 
