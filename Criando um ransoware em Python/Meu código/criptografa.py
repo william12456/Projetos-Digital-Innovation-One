@@ -6,14 +6,14 @@ def Criptografa(txt):
     
 def LerArquivo(file):
     with open(file,'r') as f:
-        return f.readlines()
+        return f.read()
     
 def DeletaArquivo(files):
     os.remove(files) 
 
 def GravaNovoArquivo(txt, root, file):
     # sourcery skip: use-fstring-for-concatenation
-   with open(os.path.join(root, file) + '.enc', 'w') as f:
+   with open(os.path.join(root, file) + '.enc', 'wb') as f:
        f.write(txt)
        print(type(f))
 

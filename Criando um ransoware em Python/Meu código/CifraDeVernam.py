@@ -5,7 +5,7 @@ import sys # Biblioteca do sistema
 
 # inicia variaveis
 # Só para teste, mas em um cenario real, a senha deve ser idepedente do algoritmo
-def EncriptarDecriptar(txt, mode):
+def EncriptarDecriptar(txt:str, mode:str):
     print(txt)
     # sourcery skip: convert-to-enumerate, move-assign-in-block, use-join
     key = "BtJrHKrr1\}p36`8"
@@ -17,28 +17,30 @@ def EncriptarDecriptar(txt, mode):
     xored = ''
     msg = ''
     
-    # Transforma a mensagem em hexadecimal
+    # codifica ou decodifica a mensage
     if mode == 'enc':
         msg = txt
     elif mode == 'dec':
-        msg = binascii.unhexlify(txt)
-    for line in msg:
-        for msgchar in line:
-            # Operação XOR:
-            # chr() - transforma um caracter em decimal para ascii
-            # ord() - transforma um caractere ascii em decimal
-            # xored += chr(ord(key[keyidx % len(key)]) ^ ord(chr(msgchar)))
-            xored += chr(ord(key[keyidx % len(key)]) ^ ord(msgchar))
+        msg = txt.decode('utf8', 'strict')
+        # msg = binascii.unhexlify(txt)
+    print(msg)
+    for msgchar in msg:
+        print(msgchar)
+        # Operação XOR:
+        # chr() - transforma um caracter em decimal para ascii
+        # ord() - transforma um caractere ascii em decimal
+        # xored += chr(ord(key[keyidx % len(key)]) ^ ord(chr(msgchar)))
+        xored += chr(ord(key[keyidx % len(key)]) ^ ord(msgchar))
 
-            # Controla qual a letra da palavra-secreta será usada no próximo loop
-            keyidx += 1
+        # Controla qual a letra da palavra-secreta será usada no próximo loop
+        keyidx += 1
 
     msgenc = ''
     # Transforma o resultado em hexadecimal letra
-    """
     if mode == 'enc':
-        msgenc = binascii.hexlify(str.encode(xored))
+        msgenc = xored.encode(encoding='utf8')
+        # binascii.hexlify(str.encode(xored))
     elif mode == 'dec':
         msgenc = xored
-    """
-    return xored
+    print(msgenc)
+    return msgenc
