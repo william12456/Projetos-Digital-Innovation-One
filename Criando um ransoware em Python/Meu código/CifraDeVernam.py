@@ -6,7 +6,6 @@ import sys # Biblioteca do sistema
 # inicia variaveis
 # Só para teste, mas em um cenario real, a senha deve ser idepedente do algoritmo
 def EncriptarDecriptar(txt:str, mode:str):
-    print(txt)
     # sourcery skip: convert-to-enumerate, move-assign-in-block, use-join
     key = "BtJrHKrr1\}p36`8"
 
@@ -23,9 +22,7 @@ def EncriptarDecriptar(txt:str, mode:str):
     elif mode == 'dec':
         msg = txt.decode('utf8', 'strict')
         # msg = binascii.unhexlify(txt)
-    print(msg)
     for msgchar in msg:
-        print(msgchar)
         # Operação XOR:
         # chr() - transforma um caracter em decimal para ascii
         # ord() - transforma um caractere ascii em decimal
@@ -42,5 +39,4 @@ def EncriptarDecriptar(txt:str, mode:str):
         # binascii.hexlify(str.encode(xored))
     elif mode == 'dec':
         msgenc = xored
-    print(msgenc)
     return msgenc

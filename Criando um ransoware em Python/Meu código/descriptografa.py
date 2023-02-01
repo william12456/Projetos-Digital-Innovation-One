@@ -22,7 +22,6 @@ if __name__ == "__main__":
     for root, directories, files in os.walk(path):
         for filename in files:
             txt = LerArquivo(os.path.join(root, filename))
-            print(txt)
             txtdec = Descriptografa(txt)
             GravaNovoArquivo(txtdec, root,filename)
             DeletaArquivo(os.path.join(root,filename))

